@@ -1,0 +1,66 @@
+
+Table pmo {
+    payment_no                  VARCHAR(20) [primary key] // Primary key
+    transaction_date            date
+    cost_center                 smallint
+    budget_account              VARCHAR(50)
+    region_name                 VARCHAR(50) // Foreign Key referencing org_structure
+    market                      VARCHAR(50) // Foreign Key referencing campaigns
+    description                 TEXT
+    contract_no                 VARCHAR(20) // Foreign Key referencing agency_contracts
+    contract_name               VARCHAR(100)
+    purchase_order              VARCHAR(20)
+    purchase_requisition        VARCHAR(20)
+    project_no                  VARCHAR(20) // Foreign Key referencing projects
+    payment_entity              VARCHAR(50)
+    company_name                VARCHAR(100)
+    company_legal_entity        VARCHAR(50)
+    amount_usd                  DECIMAL(15,2)
+    amount_cny                  DECILAM(15,2)  
+}
+
+Table agency_contracts {
+    contract_no                 VARCHAR(20) [primary key] // Primary Key
+    agency_name                 VARCHAR(100)
+    address_1                   VARCHAR(100)
+    address_2                   VARCHAR(100)
+    city                        VARCHAR(100)
+    state                       VARCHAR(100)
+    country                     VARCHAR(100)
+    post_code                   VARCHAR(50)
+    contract_start              date
+    contract_end                date
+    contract_value              DECIMAL(15,2)
+    contact_person              VARCHAR(100)
+    contact_email               VARCHAR(100)    
+}
+
+Table campaigns {
+    campaign_id                 SERIAL [primary key] // Primary Key
+    campaign_name               VARCHAR(100)
+    start_date                  date
+    end_date                    date
+    budget_allocated            DECIMAL(15,2)
+    market                      VARCHAR(50)
+}
+
+Table org_structure {
+    emp_id                      SERIAL [primary key] // Primary Key
+    emp_name                    VARCHAR(100)
+    title                       VARCHAR(50)
+    region_name                 VARCHAR(50)
+    department                  VARCHAR(50)
+    manager                     VARCHAR(100)
+}
+
+Table projects {
+    project_no                  VARCHAR(20) [primary key] // Primary Key
+    project_name                VARCHAR(100)
+    project_owner               VARCHAR(100)
+}
+
+// Define Foreign Key relationship
+Ref: pmo.contract_no > agency_contracts.contract_no
+Ref: pmo.market > campaigns.market
+Ref: pmo.region_name > org_structure.region_name
+Ref: pmo.project_no > projects.project_no
