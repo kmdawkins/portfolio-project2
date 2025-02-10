@@ -3,10 +3,8 @@
 Table pmo {
     payment_no                  VARCHAR(20) [primary key] // Primary key
     transaction_date            DATE
-    cost_center                 SMALLINT
-    budget_account              VARCHAR(50)
     region_name                 VARCHAR(50) // Foreign Key referencing campaigns
-    campaign_id                 SMALLINT // Foreign Key referencing campaigns
+    campaign_id                 VARCHAR(10) // Foreign Key referencing campaigns
     description                 TEXT
     contract_no                 VARCHAR(20) // Foreign Key referencing agency_contracts
     purchase_order              VARCHAR(20)
@@ -14,7 +12,7 @@ Table pmo {
     project_no                  VARCHAR(20) // Foreign Key referencing projects
     payment_entity              VARCHAR(50)
     amount_usd                  DECIMAL(15,2)
-    amount_cny                  DECILAM(15,2)  
+    amount_cny                  DECIMAL(15,2)  
 }
 
 Table agency_contracts {
@@ -35,7 +33,7 @@ Table agency_contracts {
 }
 
 Table campaigns {
-    campaign_id                 SERIAL [primary key] // Primary Key
+    campaign_id                 VARCHAR(10) [primary key] // Primary Key
     market                      VARCHAR(50)
     campaign_name               VARCHAR(50)
     start_date                  date
@@ -44,6 +42,14 @@ Table campaigns {
     region_name                 VARCHAR(50)    
     company_name                VARCHAR(75)                
     company_legal_entity        VARCHAR(75)
+}
+
+Table campaign_projects {
+    campaign_id                     VARCHAR(10) // Foreign Key referencing campaigns
+    project_no                      VARCHAR(20) // Foreigh Key referencing projects
+    indexes {
+        (campaign_id, project_no)   [primary key]
+    }
 }
 
 Table org_structure {
@@ -60,6 +66,8 @@ Table projects {
     project_no                  VARCHAR(20) [primary key] // Primary Key
     project_name                VARCHAR(50)
     project_owner               VARCHAR(50)
+    cost_center                 SMALLINT
+    budget_account              VARCHAR(50)
 }
 
 // Define Foreign Key relationship
@@ -67,4 +75,6 @@ Ref: pmo.region_name > campaigns.region_name
 Ref: pmo.campaign_id > campaigns.campaign_id
 Ref: pmo.contract_no > agency_contracts.contract_no
 Ref: pmo.project_no > projects.project_no
-Ref: campaigns.market > org_structure.markets
+Ref: campaigns.market > org_structure.market
+Ref: campaign_projects.campaign_id > campaigns.campaign_id
+Ref: campaign_projects.project_no > projects.project_no
