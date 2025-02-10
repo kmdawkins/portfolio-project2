@@ -36,7 +36,7 @@ Table agency_contracts {
 
 Table campaigns {
     campaign_id                 SERIAL [primary key] // Primary Key
-    market                      VARCHAR(50) [primary key] // Composite Primary Key
+    market                      VARCHAR(50)
     campaign_name               VARCHAR(50)
     start_date                  date
     end_date                    date
