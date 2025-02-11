@@ -45,11 +45,9 @@ Table campaigns {
 }
 
 Table campaign_projects {
-    campaign_id                     VARCHAR(10) // Foreign Key referencing campaigns
-    project_no                      VARCHAR(20) // Foreigh Key referencing projects
-    indexes {
-        (campaign_id, project_no)   [primary key]
-    }
+    campaign_id                 VARCHAR(10) // Foreign Key referencing campaigns
+    project_no                  VARCHAR(20) // Foreigh Key referencing projects
+    PRIMARY KEY (campaign_id, project_no) // Define composite primary key directly
 }
 
 Table org_structure {
