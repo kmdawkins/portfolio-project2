@@ -1,6 +1,6 @@
 // Budget Schema - Database structure 
 
-Table pmo {
+Table pmo [headercolor: #CA4242] {
     payment_no                  VARCHAR(20) [primary key] // Primary key
     transaction_date            DATE
     region_name                 VARCHAR(50) // Foreign Key referencing campaigns
@@ -15,7 +15,7 @@ Table pmo {
     amount_cny                  DECIMAL(15,2)  
 }
 
-Table agency_contracts {
+Table agency_contracts [headercolor: #E4A62E] {
     contract_no                 VARCHAR(20) [primary key] // Primary Key
     agency_name                 VARCHAR(75)
     address_1                   VARCHAR(75)
@@ -32,35 +32,41 @@ Table agency_contracts {
     contact_phone               VARCHAR(50)                 
 }
 
-Table campaigns {
+Table campaigns [headercolor: #1E69FD] {
     campaign_id                 VARCHAR(10) [primary key] // Primary Key
-    market                      VARCHAR(50)
+    region_name                 VARCHAR(50) // Foreign Key referencing org_structure
     campaign_name               VARCHAR(50)
     start_date                  date
     end_date                    date
-    budget_allocated            DECIMAL(15,2)
-    region_name                 VARCHAR(50)    
+    budget_allocated            DECIMAL(15,2)    
     company_name                VARCHAR(75)                
     company_legal_entity        VARCHAR(75)
 }
 
-Table campaign_projects {
+Table campaign_projects [headercolor: #1E69FD] {
     campaign_id                 VARCHAR(10) // Foreign Key referencing campaigns
     project_no                  VARCHAR(20) // Foreigh Key referencing projects
     PRIMARY KEY (campaign_id, project_no) // Define composite primary key directly
 }
 
-Table org_structure {
+Table markets [headercolor: #79AD51] {
+    market_id                   SERIAL [primary key]
+    market_prefix               VARCHAR(5) [default: 'MID00-]
+    market_name                 VARCHAR(50)
+    region_name                 VARCHAR(50) // Foreign Key referencing org_structure
+}
+
+Table org_structure [headercolor: #79AD51] {
     emp_id                      SERIAL [primary key] // Auto-incrementing unique identifier
     emp_prefix                  VARCHAR(5) [default: 'EMP-'] // Prefix stored separately
     emp_name                    VARCHAR(75)
     title                       VARCHAR(50)
-    market                      VARCHAR(50) // Foreign Key referencing campaigns
+    region_name                 VARCHAR(50) // Foreign Key referencing campaigns
     department                  VARCHAR(50)
     manager                     VARCHAR(75)
 }
 
-Table projects {
+Table projects [headercolor: #79AD51] {
     project_no                  VARCHAR(20) [primary key] // Primary Key
     project_name                VARCHAR(50)
     project_owner               VARCHAR(50)
@@ -73,6 +79,7 @@ Ref: pmo.region_name > campaigns.region_name
 Ref: pmo.campaign_id > campaigns.campaign_id
 Ref: pmo.contract_no > agency_contracts.contract_no
 Ref: pmo.project_no > projects.project_no
-Ref: campaigns.market > org_structure.market
+Ref: campaigns.region_name > org_structure.region_name
 Ref: campaign_projects.campaign_id > campaigns.campaign_id
-Ref: campaign_projects.project_no > projects.project_no
+Ref: campaigns.project_no > projects.project_no
+Ref: markets.region_name > org_structure.region_name
