@@ -51,7 +51,7 @@ Table campaign_projects [headercolor: #1E69FD] {
 
 Table markets [headercolor: #79AD51] {
     market_id                   SERIAL [primary key]
-    market_prefix               VARCHAR(5) [default: 'MID00-]
+    market_prefix               VARCHAR(5) [default: 'MID00-']
     market_name                 VARCHAR(50)
     region_name                 VARCHAR(50) // Foreign Key referencing org_structure
 }
@@ -81,5 +81,5 @@ Ref: pmo.contract_no > agency_contracts.contract_no
 Ref: pmo.project_no > projects.project_no
 Ref: campaigns.region_name > org_structure.region_name
 Ref: campaign_projects.campaign_id > campaigns.campaign_id
-Ref: campaigns.project_no > projects.project_no
+Ref: campaign_projects.project_no > projects.project_no
 Ref: markets.region_name > org_structure.region_name
