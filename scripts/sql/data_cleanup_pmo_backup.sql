@@ -9,7 +9,7 @@ SET project_no = CASE
 END
 WHERE budget_account = 'Trust and Safety';
 
---Verify query update
+-- Verification query for duplicate project number update
 
 SELECT
 	budget_account,
@@ -21,3 +21,31 @@ GROUP BY
 	budget_account, project_no
 ORDER BY
 	budget_account;
+
+
+-- Data cleanup to resolve region name reassignment to new region North America in pmo_backup table
+UPDATE public.pmo_backup
+SET region_name =
+	CASE
+		WHEN market IN ('Canada', 'United States') THEN 'North America'
+		ELSE region_name
+	END
+WHERE market IN ('Canada','United States');
+
+
+-- Data cleanup to resolve region name reassignment to new Corporate in pmo_backup table
+UPDATE public.pmo_backup
+SET region_name =
+	CASE
+		WHEN market IN ('Tik Tok', 'ByteDance Corporate') THEN 'Corporate'
+		ELSE region_name
+	END
+WHERE market IN ('Tik Tok', 'ByteDance Corporate');
+
+--Verification query for data cleanup update
+SELECT
+	region_name,
+	market
+FROM pmo_backup
+GROUP BY region_name
+ORDER BY region_name ASC;
