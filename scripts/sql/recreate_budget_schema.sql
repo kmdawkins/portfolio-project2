@@ -54,6 +54,16 @@ CREATE TABLE campaigns (
 CREATE INDEX idx_campaign_name ON campaigns (campaign_name);
 CREATE INDEX idx_campaign_region ON campaigns (region_name);
 
+-- Create projects table and index
+CREATE TABLE projects (
+    project_no      VARCHAR(20) PRIMARY KEY,
+    project_name    VARCHAR(50) NOT NULL,
+    project_owner   VARCHAR(50),
+    cost_center     SMALLINT NOT NULL,
+    budget_account  VARCHAR(50) NOT NULL
+);
+CREATE INDEX idx_project_name ON projects (project_name);
+
 -- Create campaign_projects junction table (Many-to-many Relationship), composite primary key, foreign key, and index
 CREATE TABLE campaign_projects (
     campaign_id     VARCHAR(10) NOT NULL,
@@ -82,16 +92,6 @@ CREATE TABLE org_structure (
 );
 CREATE INDEX idx_emp_name ON org_structure (emp_name);
 CREATE INDEX idx_org_department ON org_structure (department);
-
--- Create projects table and index
-CREATE TABLE projects (
-    project_no      VARCHAR(20) PRIMARY KEY,
-    project_name    VARCHAR(50) NOT NULL,
-    project_owner   VARCHAR(50),
-    cost_center     SMALLINT NOT NULL,
-    budget_account  VARCHAR(50) NOT NULL
-);
-CREATE INDEX idx_project_name ON projects (project_name);
 
 -- Create pmo table (Transactions table), foreign keys, and indexes
 CREATE TABLE pmo (
