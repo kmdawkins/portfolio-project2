@@ -1,85 +1,74 @@
 // Budget Schema - Database structure 
 
-Table pmo [headercolor: #CA4242] {
-    payment_no                  VARCHAR(20) [primary key] // Primary key
-    transaction_date            DATE
-    region_name                 VARCHAR(50) // Foreign Key referencing campaigns
-    campaign_id                 VARCHAR(10) // Foreign Key referencing campaigns
-    description                 TEXT
-    contract_no                 VARCHAR(20) // Foreign Key referencing agency_contracts
-    purchase_order              VARCHAR(20)
-    purchase_requisition        VARCHAR(20)
-    project_no                  VARCHAR(20) // Foreign Key referencing projects
-    payment_entity              VARCHAR(50)
-    amount_usd                  DECIMAL(15,2)
-    amount_cny                  DECIMAL(15,2)  
+Table cost_centers {
+    cost_center_id              SERIAL [primary key] // Primary Key
+    cost_center                 SMALLINT
+    budget_account              VARCHAR(50)
 }
 
 Table agency_contracts [headercolor: #E4A62E] {
     contract_no                 VARCHAR(20) [primary key] // Primary Key
-    agency_name                 VARCHAR(75)
-    address_1                   VARCHAR(75)
-    address_2                   VARCHAR(75)
-    city                        VARCHAR(75)
-    state                       VARCHAR(75)
-    country                     VARCHAR(75)
-    post_code                   VARCHAR(20)
-    contract_start              DATE
-    contract_end                DATE
-    contract_value              DECIMAL(15,2)
-    contact_person              VARCHAR(75)
-    contact_email               VARCHAR(75)
-    contact_phone               VARCHAR(50)                 
+    agency_name                 VARCHAR(75)                
 }
 
 Table campaigns [headercolor: #1E69FD] {
     campaign_id                 VARCHAR(10) [primary key] // Primary Key
-    region_name                 VARCHAR(50) // Foreign Key referencing org_structure
+    region_name                 VARCHAR(50)
     campaign_name               VARCHAR(50)
-    start_date                  date
-    end_date                    date
+    start_date                  DATE
+    end_date                    DATE
     budget_allocated            DECIMAL(15,2)    
     company_name                VARCHAR(75)                
     company_legal_entity        VARCHAR(75)
 }
 
-Table campaign_projects [headercolor: #1E69FD] {
-    campaign_id                 VARCHAR(10) // Foreign Key referencing campaigns
-    project_no                  VARCHAR(20) // Foreigh Key referencing projects
-    PRIMARY KEY (campaign_id, project_no) // Define composite primary key directly
+Table campaign_mapping [headercolor: #1E69FD] {
+    project_no                  [primary key] // Primary Key
+    campaign_id                 VARCHAR(10) [not null, ref: > campaigns.campaign_id]
+    budget_account              VARCHAR(50)
+    emp_id                      SMALLINT [not null, ref: > org_structure.emp_id]
 }
 
 Table markets [headercolor: #79AD51] {
     market_id                   SERIAL [primary key]
-    market_prefix               VARCHAR(5) [default: 'MID00-']
+    market_code                 TEXT
     market_name                 VARCHAR(50)
-    region_name                 VARCHAR(50) // Foreign Key referencing org_structure
+    region_name                 VARCHAR(50)
 }
 
 Table org_structure [headercolor: #79AD51] {
     emp_id                      SERIAL [primary key] // Auto-incrementing unique identifier
-    emp_prefix                  VARCHAR(5) [default: 'EMP-'] // Prefix stored separately
+    emp_code                    TEXT
     emp_name                    VARCHAR(75)
-    title                       VARCHAR(50)
-    region_name                 VARCHAR(50) // Foreign Key referencing campaigns
+    title                       VARCHAR(50)    
     department                  VARCHAR(50)
     manager                     VARCHAR(75)
+    market_id                   SMALLINT [not null, ref: > markets.market_id]
 }
 
 Table projects [headercolor: #79AD51] {
     project_no                  VARCHAR(20) [primary key] // Primary Key
     project_name                VARCHAR(50)
+    cost_center_id              SMALLINT [not null, ref: > cost_centers.cost_center_id]
     project_owner               VARCHAR(50)
-    cost_center                 SMALLINT
-    budget_account              VARCHAR(50)
 }
 
-// Define Foreign Key relationship
-Ref: pmo.region_name > campaigns.region_name
-Ref: pmo.campaign_id > campaigns.campaign_id
-Ref: pmo.contract_no > agency_contracts.contract_no
-Ref: pmo.project_no > projects.project_no
-Ref: campaigns.region_name > org_structure.region_name
-Ref: campaign_projects.campaign_id > campaigns.campaign_id
-Ref: campaign_projects.project_no > projects.project_no
-Ref: markets.region_name > org_structure.region_name
+able campaign_projects [headercolor: #1E69FD] {
+    campaign_id                 VARCHAR(10) [not null, ref: > campaigns.campaign_id]
+    project_no                  VARCHAR(20) [not null, ref: > projects.project_no]
+    PRIMARY KEY (campaign_id, project_no) // Define composite primary key directly
+}
+
+Table pmo [headercolor: #CA4242] {
+    payment_no                  VARCHAR(20) [primary key] // Primary key
+    transaction_date            DATE
+    campaign_id                 VARCHAR(10) [not null, ref: > campaigns.campaign_id]
+    description                 TEXT
+    contract_no                 VARCHAR(20) [not null, ref: > agency_contracts.contract_no]
+    purchase_order              VARCHAR(20)
+    purchase_requisition        VARCHAR(20)
+    project_no                  VARCHAR(20) [not null, ref: > projects.project_no]
+    payment_entity              VARCHAR(50)
+    amount_usd                  DECIMAL(15,2)
+    amount_cny                  DECIMAL(15,2)  
+}
