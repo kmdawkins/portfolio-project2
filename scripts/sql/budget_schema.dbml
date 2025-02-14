@@ -40,8 +40,7 @@ Table org_structure [headercolor: #79AD51] {
     emp_id                      SERIAL [primary key] // Auto-incrementing unique identifier
     emp_code                    TEXT
     emp_name                    VARCHAR(75)
-    title                       VARCHAR(50)    
-    department                  VARCHAR(50)
+    title                       VARCHAR(50) 
     manager                     VARCHAR(75)
     market_id                   SMALLINT [not null, ref: > markets.market_id]
 }
