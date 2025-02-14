@@ -49,8 +49,7 @@ Table org_structure [headercolor: #79AD51] {
 Table projects [headercolor: #79AD51] {
     project_no                  VARCHAR(20) [primary key] // Primary Key
     project_name                VARCHAR(50)
-    cost_center_id              SMALLINT [not null, ref: > cost_centers.cost_center_id]
-    project_owner               VARCHAR(50)
+    cost_center_id              SMALLINT [not null, ref: > cost_centers.cost_center_id]   
 }
 
 able campaign_projects [headercolor: #1E69FD] {
