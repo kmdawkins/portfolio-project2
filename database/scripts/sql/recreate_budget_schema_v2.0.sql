@@ -32,10 +32,11 @@ CREATE TABLE org_structure (
 -- Markets Table (Includes Regional Market Placeholders for EVPs)
 CREATE TABLE markets (
     market_id SERIAL PRIMARY KEY,
-    market_code TEXT NOT NULL CHECK (market_code <> ''),
-    market_name VARCHAR(50) NOT NULL CHECK (market_name <> ''),
+    market_code TEXT GENERATED ALWAYS AS ('MID' || LPAD(market_id::TEXT, 3, '0')) STORED UNIQUE,
+    market_name VARCHAR(50) NOT NULL UNIQUE,
     region_name VARCHAR(50) NOT NULL CHECK (region_name <> '')
 );
+CREATE INDEX idx_market_name ON markets (market_name);
 
 ALTER TABLE org_structure ADD CONSTRAINT fk_org_structure_market FOREIGN KEY (market_id) REFERENCES markets(market_id);
 
