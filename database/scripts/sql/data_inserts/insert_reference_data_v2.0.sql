@@ -12,16 +12,16 @@
 BEGIN;
     INSERT INTO public.markets (market_name, region_name)
     VALUES
-    ('','Region Corporate'),
-    ('','Region Africa'),
-    ('','Region APAC'),
-    ('','Region Europe'),
-    ('','Region Japan'),
-    ('','Region LATAM'),
-    ('','Region Middle East'),
-    ('','Region North America'),
-    ('','Region South Asia'),
-    ('','Region U.K'),
+    ('Regional Corporate','Corporate'),
+    ('Regional Africa','Africa'),
+    ('Regional APAC','APAC'),
+    ('Regional Europe','Europe'),
+    ('Regional Japan','Japan'),
+    ('Regional LATAM','LATAM'),
+    ('Regional Middle East','Middle East'),
+    ('Regional North America','North America'),
+    ('Regional South Asia','South Asia'),
+    ('Regional Great Britain','U.K'),
     ('Ethiopia', 'Africa'),
     ('Kenya','Africa'),
     ('Madagascar','Africa'),
@@ -56,6 +56,7 @@ BEGIN;
     ('France', 'Europe'),
     ('Germany', 'Europe'),
     ('Greece', 'Europe'),
+    ('Ireland','Europe'),
     ('Italy', 'Europe'),
     ('Netherlands', 'Europe'),
     ('Norway', 'Europe'),
@@ -85,10 +86,8 @@ BEGIN;
     ('Bangladesh', 'South Asia'),
     ('India', 'South Asia'),
     ('Pakistan', 'South Asia'),
-    ('Sri Lanka', 'South Asia'),
-    ('Ireland', 'U.K.'),
-    ('London', 'U.K.');
-ON CONFLICT (market_id) DO NOTHING;
+    ('Sri Lanka', 'South Asia');   
+ON CONFLICT (market_name) DO NOTHING;
 
 COMMIT;
 
