@@ -86,7 +86,7 @@ BEGIN;
     ('Bangladesh', 'South Asia'),
     ('India', 'South Asia'),
     ('Pakistan', 'South Asia'),
-    ('Sri Lanka', 'South Asia');   
+    ('Sri Lanka', 'South Asia')   
 ON CONFLICT (market_name) DO NOTHING;
 
 COMMIT;
