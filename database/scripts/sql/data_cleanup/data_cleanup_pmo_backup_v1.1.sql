@@ -44,7 +44,7 @@ WHERE market = 'Ireland';
 
 -- Update London to 'Regional Great Britain' in 'U.K.' region
 UPDATE pmo_backup
-SET market_name = 'Regional Great Britain',
+SET market = 'Regional Great Britain',
     region_name = 'U.K.'
 WHERE market = 'London';
 
