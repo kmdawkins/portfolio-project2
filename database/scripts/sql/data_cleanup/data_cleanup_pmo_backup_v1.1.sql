@@ -16,26 +16,22 @@ SET project_no = CASE
     WHEN budget_account = 'Trust and Safety' AND project_no = 'PJ20225000' THEN 'PJ20225500'
     ELSE project_no
 END
-WHERE budget_account = 'Trust and Safety'
-ON CONFLICT DO NOTHING;
+WHERE budget_account = 'Trust and Safety';
 
 -- Update region reassignment for North America (Canada & U.S.)
 UPDATE pmo_backup
 SET region_name = 'North America'
-WHERE market_name IN ('Canada', 'United States')
-ON CONFLICT DO NOTHING;
+WHERE market_name IN ('Canada', 'United States');
 
 -- Update region reassignment for Corporate (Tik Tok & ByteDance Corporate)
 UPDATE pmo_backup
 SET region_name = 'Corporate'
-WHERE market_name IN ('Tik Tok', 'ByteDance Corporate')
-ON CONFLICT DO NOTHING;
+WHERE market_name IN ('Tik Tok', 'ByteDance Corporate');
 
 -- Update company name correction (42Weeks → 42West)
 UPDATE pmo_backup
 SET company_name = '42West'
-WHERE company_name ILIKE '42Weeks'
-ON CONFLICT DO NOTHING;
+WHERE company_name ILIKE '42Weeks';
 
 -- ==============================================
 -- Update Ireland & London Market and Region Names
@@ -44,14 +40,12 @@ ON CONFLICT DO NOTHING;
 -- Update Ireland to Europe
 UPDATE pmo_backup
 SET region_name = 'Europe'
-WHERE market_name = 'Ireland'
-ON CONFLICT DO NOTHING;
+WHERE market_name = 'Ireland';
 
 -- Update London to 'Regional Great Britain' in 'U.K.' region
 UPDATE pmo_backup
 SET market_name = 'Regional Great Britain',
     region_name = 'U.K.'
-WHERE market_name = 'London'
-ON CONFLICT DO NOTHING;
+WHERE market_name = 'London';
 
 COMMIT;
