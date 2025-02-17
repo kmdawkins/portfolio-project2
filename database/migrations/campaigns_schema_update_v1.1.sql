@@ -1,14 +1,15 @@
 -- ==============================================
--- SCHEMA UPDATE: Add column campaign_code to campaigns
+-- SCHEMA UPDATE: Drop column region_name from campaigns
 -- ==============================================
 -- Author: Katherina Dawkins  
 -- Date: 2025-02-17  
--- Purpose: Adds campaign_code as a generated column for uniqueness
+-- Purpose: Drops the 'region_name' column from 'campaigns' to eliminate redundancy
+-- and improve database normalization
 -- ==============================================
 
 BEGIN;
 
 ALTER TABLE campaigns
-ADD COLUMN campaign_code TEXT GENERATED ALWAYS AS ('CAMP' || LPAD(campaign_id::TEXT, 5, '0')) STORED UNIQUE;
+DROP COLUMN region_name
 
 COMMIT;
