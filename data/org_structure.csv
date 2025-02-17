@@ -1,0 +1,42 @@
+emp_id,emp_code,emp_name,title,manager,market_id
+,,Avery Brooks,EVP,Jadzia Dax,151
+,,Max Grodenchik,EVP,Jadzia Dax,152
+,,Armin Shimerman,EVP,Jadzia Dax,153
+,,Colm Meaney,EVP,Jadzia Dax,154
+,,Michael Dorn,EVP,Jadzia Dax,155
+,,Nana Visitor,EVP,Jadzia Dax,156
+,,Andrew Robinson,EVP,Jadzia Dax,157
+,,Terry Farrell,EVP,Jadzia Dax,158
+,,Rene Auberjonois,EVP,Jadzia Dax,159
+,,Alexander Siddig,EVP,Jadzia Dax,160
+,,Aron Eisenberg,SVP,Avery Brooks,187
+,,Cirroc Lofton,SVP,Avery Brooks,188
+,,Marc Alaimo,Sr. Director,Max Grodenchik,162
+,,Majel Barrett,Director,Marc Alaimo,167
+,,Jeffrey Combs,Sr. Director,Armin Shimerman,170
+,,J.G. Hertzler,Director,Jeffrey Combs,172
+,,Nicole de Boer,Director,Jeffrey Combs,174
+,,Casey Biggs,Director,Jeffrey Combs,179
+,,Rosalind Chao,Director,Jeffrey Combs,180
+,,Chase Masterson,Director,Jeffrey Combs,257
+,,Penny Johnson-Jerald,Director,Jeffrey Combs,184
+,,Salome Jens,Director,Jeffrey Combs,186
+,,Kasidy Yates,Sr. Director,Colm Meaney,192
+,,Barry Jenner,Director,Kasidy Yates,193
+,,Tasha Yar,Sr. Director,Colm Meaney,195
+,,Hana Hatae,Director,Tasha Yar,196
+,,Kenneth Marshall,Director,Tasha Yar,197
+,,Philip Anglim,Director,Tasha Yar,198
+,,James Darren,Director,Tasha Yar,199
+,,Wallace Shawn,Director,Tasha Yar,202
+,,Melanie Smith,Director,Tasha Yar,203
+,,Brock Peters,Sr. Director,Nana Visitor,205
+,,Cecily Adams,Director,Brock Peters,206
+,,Camille Saviola,Director,Brock Peters,210
+,,Ira Steven Behr,Sr. Director,Andrew Robinson,217
+,,Hans Beimler,Director,Ira Steven Behr,219
+,,Rene Echevarria,Sr. Director,Terry Farrell,220
+,,Peter Allan Fields,Sr. Director,Terry Farrell,221
+,,Andrea Moore Alton,Sr. Director,Rene Auberjonois,223
+,,Lynn Barker,Director,Andrea Moore Alton,224
+,,Hilary J. Bader,Director,Andrea Moore Alton,225
