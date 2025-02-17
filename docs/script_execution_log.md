@@ -1,5 +1,10 @@
 ## Script Execution Log
-- **2025-02-16**: Successfully ran 'insert_reference_data_v2.3.sql' in psql. Insterted missed market_name, 'Singapore'. No errors.
+- **2025-02-16**: Successfully ran 'copy_org_structure_v1.0.sql' in psql. No errors.
+BEGIN
+COPY 41
+COMMIT
+
+- **2025-02-16**: Successfully ran 'insert_reference_data_v2.3.sql' in psql. Inserted missed market_name, 'Singapore'. No errors.
 BEGIN
 INSERT 0 1
 COMMIT
