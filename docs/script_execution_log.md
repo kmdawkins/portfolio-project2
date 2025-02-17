@@ -1,4 +1,11 @@
 ## Script Execution Log
+- **2025-02-16**: Sucessfully ran 'insert_reference_data_v2.5.sql' in psql. No errors.
+BEGIN
+INSERT 0 0
+INSERT 0 0
+INSERT 0 20
+COMMIT
+
 - **2025-02-16**: Successfully ran 'insert_reference_data_v2.4.sql' in psql. No errors.
 BEGIN
 INSERT 0 0
