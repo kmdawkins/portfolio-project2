@@ -10,6 +10,6 @@
 BEGIN;
 
 ALTER TABLE campaigns
-DROP COLUMN region_name
+DROP COLUMN region_name;
 
 COMMIT;
