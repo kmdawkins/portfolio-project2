@@ -1,4 +1,9 @@
 ## Script Execution Log
+- **2025-02-18**: Succesfully ran 'agency_contracts_schema_update_v1.2.sql' in psql. No errors.
+BEGIN
+CREATE INDEX
+COMMIT
+
 - **2025-02-18**: Sucessfully ran 'agency_contracts_schema_update_v1.1.sql' in psql. No errors.
 BEGIN
 ALTER TABLE
