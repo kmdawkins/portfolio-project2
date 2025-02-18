@@ -8,7 +8,7 @@
 
 BEGIN;
 
-ALTER TABLE agency_contracts
+ALTER TABLE campaigns
 DROP COLUMN company_name,
 DROP COLUMN company_legal_entity;
 
