@@ -1,4 +1,9 @@
 ## Script Execution Log
+- **2025-02-18**: Successfully ran 'campaigns_schema_update_v1.2.sql' in psql. No erorrs.
+BEGIN
+ALTER TABLE
+COMMIT
+
 - **2025-02-18**: Successfully ran 'agencies_schema_update_v1.0.sql' in psql. No errors.
 BEGIN
 CREATE TABLE
