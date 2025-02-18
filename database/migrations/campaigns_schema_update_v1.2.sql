@@ -1,5 +1,5 @@
 -- ==============================================
--- SCHEMA UPDATE: Dropped company_name and company_legal_entity from agency_contracts table
+-- SCHEMA UPDATE: Dropped company_name and company_legal_entity from the campaigns table
 -- ==============================================
 -- Author: Katherina Dawkins  
 -- Date: 2025-02-18  
