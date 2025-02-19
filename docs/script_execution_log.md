@@ -1,4 +1,9 @@
 ## Script Execution Log
+- **2025-02-18**: Successfully ran 'insert_reference_data_v2.6.sql; in psql. No errors.
+BEGIN
+INSERT 0 26
+COMMIT
+
 - **2025-02-18**: Successfully ran 'agencies_schema_update_v1.1.sql' in psql. No errors.
 BEGIN
 ALTER TABLE
