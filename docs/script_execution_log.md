@@ -1,4 +1,9 @@
 ## Script Execution Log
+- **2025-02-19**: Successfull ran 'campaign_mapping_schema_update_v1.0.sql' in psql. No errors.
+BEGIN
+CREATE INDEX
+COMMIT
+
 - **2025-02-19**: Successfully ran 'campaigns_schema_update_v1.4.sql' in psql. No errors.
 DROP TABLE
 CREATE TABLE
