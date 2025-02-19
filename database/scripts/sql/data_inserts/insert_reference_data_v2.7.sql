@@ -8,7 +8,7 @@
 
 BEGIN;
 
-INSERT INTO public.campaigns (campaign_name, start_date, end_date, budget_allocated)
+INSERT INTO public.campaigns (campaign_id, campaign_name, start_date, end_date, budget_allocated)
 VALUES
     -- 10 records **fully within** the date range
     ('1025', 'Compliance Shield', '2022-03-05', '2023-03-20', 1500000.00),
