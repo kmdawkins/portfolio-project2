@@ -1,9 +1,9 @@
 -- ==============================================
--- SCHEMA UPDATE: Add INDEX on campaign.campaing_id
+-- SCHEMA UPDATE: Add INDEX on campaign.campaign_id
 -- ==============================================
 -- Author: Katherina Dawkins  
 -- Date: 2025-02-19  
--- Purpose: Creates an index on campaign.campaing_id to improve query performance
+-- Purpose: Creates an index on campaign.campaign_id to improve query performance
 -- ==============================================
 
 BEGIN;
