@@ -1,4 +1,9 @@
 ## Script Execution Log
+- **2025-02-19**: Successfully ran 'copy_agency_contracts_v1.0.sql' in psql. No errors.
+BEGIN
+COPY 148
+COMMIT
+
 - **2025-02-19**: Successfully ran 'data_cleanup_pmo_backup_v1.2.sql' in psql. No errors
 BEGIN
 UPDATE 9707
