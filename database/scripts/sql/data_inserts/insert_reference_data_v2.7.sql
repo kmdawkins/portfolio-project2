@@ -29,7 +29,7 @@ VALUES
     ('Data Security Framework', '2022-05-25', '2023-02-25', 1250000.00), -- Ends 1 month before range
     ('Market Expansion Sprint', '2022-06-10', '2023-01-31', 3200000.00), -- Ends 2 months before range
 
-    -- 🔻 5 records **spill over** the range by 1-3 months
+    -- 5 records **spill over** the range by 1-3 months
     ('Global Marketing Pulse', '2022-08-01', '2023-05-01', 2800000.00), -- Spills over by 2 months
     ('Marketing Intelligence Hub', '2022-09-01', '2023-06-01', 1800000.00), -- Spills over by 3 months
     ('Market Expansion Sprint', '2022-06-10', '2023-04-30', 3200000.00), -- Spills over by 1 month
