@@ -8,6 +8,6 @@
 
 BEGIN;
 
-CREATE INDEX idx_campaign_projects_campaign ON campaign_projects (campaign_id)
+CREATE INDEX idx_campaign_projects_campaign ON campaign_projects (campaign_id);
 
 COMMIT;
