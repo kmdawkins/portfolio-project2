@@ -1,5 +1,9 @@
 ## Script Execution Log
 
+- **2025-02-20**: Successfully ran 'insert_reference_data_v2.8.sql' in psql. No errors.
+BEGIN
+INSERT 0 20
+COMMIT
 
 - **2025-02-20**: Successfully ran 'campaign_mapping_schema_update_v2.0.sql' in psql. No errors.
 BEGIN
