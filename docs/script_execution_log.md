@@ -1,4 +1,11 @@
 ## Script Execution Log
+
+
+- **2025-02-20**: Successfully ran 'campaign_mapping_schema_update_v2.0.sql' in psql. No errors.
+BEGIN
+ALTER TABLE
+COMMIT
+
 - **2025-02-19**: Successfully ran 'copy_agency_contracts_v1.0.sql' in psql. No errors.
 BEGIN
 COPY 148
