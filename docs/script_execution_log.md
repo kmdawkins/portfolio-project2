@@ -1,5 +1,10 @@
 ## Script Execution Log
 
+- **2025-02-21**: Successfully ran 'data_cleanup_pmo_backup_v2.0.sql' in psql. No errors.
+BEGIN
+UPDATE 255000
+COMMIT
+
 - **2025-02-20**: Successfully ran 'insert_reference_data_v2.9.sql' in psql. No errors.
 BEGIN
 INSERT 0 20
