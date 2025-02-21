@@ -1,5 +1,10 @@
 ## Script Execution Log
 
+- **2025-02-21**: Successfully ran 'drop_pmo_backup_v1.0.sql' in psql. No errors.
+BEGIN
+DROP TABLE
+COMMIT
+
 - **2025-02-21**: Successfully ran 'finalize_budget_schema_v3.0.sql' in psql. No errors.
 BEGIN
 INSERT 0 255000
