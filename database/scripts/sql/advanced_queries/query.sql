@@ -1,0 +1,1 @@
+SELECT * FROM public.campaigns LIMIT 5;
