@@ -1,7 +1,7 @@
 # Ignore all database backup files  
 database/backups/full_schema/*
 database/backups/data_inserts/*
-database/backups/schema_migrations/*
+
 
 # Ignore temporary or generated files  
 database/schema_active/recreate_budget_schema_v*.sql  
