@@ -1,4 +1,12 @@
--- Optimized Budget Schema (SQL + Python-Ready, Including Foreign Key Constraints & Employee Code Generation)
+-- ==============================================
+-- SCHEMA UPDATE: RECREATED BUDGET
+-- ==============================================
+-- Author: Katherina Dawkins  
+-- Date: 2025-02-14
+-- Purpose: Drops empty tables and constraints and creates optimized budget schema.
+-- Optimized for SQL & Python automation. Included foreign key constraints, employee
+-- code generation and indexes.
+-- ==============================================
 
 -- Drop existing tables to ensure a clean setup
 DROP TABLE IF EXISTS pmo CASCADE;
