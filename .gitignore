@@ -12,5 +12,5 @@ scripts/python/__pycache__/
 # Ignore logs and debugging artifacts  
 docs/script_execution_log.md  
 
-# Ignore scratch pad exercises  
-sql_queries/scratch/*
+# Ignore temporary SQL practice files (if any)  
+sql_queries/exercises/temp_*.sql  
