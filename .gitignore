@@ -1,5 +1,5 @@
 # Ignore all full database backup files (large files not needed in Git)
-sql_migrations/schema_changes/2025*_full_backup_*.sql  
+sql_migrations/schema_changes/2025*_backup_*.sql  
 
 # Ignore temporary or generated files  
 database/schema_active/recreate_budget_schema_v*.sql  
