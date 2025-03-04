@@ -1,18 +1,16 @@
-# Ignore all database backup files  
-database/backups/full_schema/*
-database/backups/data_inserts/*
-
+# Ignore all full database backup files (large files not needed in Git)
+sql_migrations/schema_changes/2025*_full_backup_*.sql  
 
 # Ignore temporary or generated files  
 database/schema_active/recreate_budget_schema_v*.sql  
 database/schema_archives/*  
 
 # Ignore local environment-specific files  
-media/*
-scripts/python/__pycache__/
+media/*  
+scripts/python/__pycache__/  
 
 # Ignore logs and debugging artifacts  
-docs/script_execution_log.md
+docs/script_execution_log.md  
 
-# Ignore scratch pad exercises
-database/scripts/sql/advanced_queries/*
+# Ignore scratch pad exercises  
+sql_queries/scratch/*
