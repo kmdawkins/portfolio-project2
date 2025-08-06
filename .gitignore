@@ -13,4 +13,4 @@ scripts/python/__pycache__/
 docs/script_execution_log.md  
 
 # Ignore temporary SQL practice files (if any)  
-# sql_queries/exercises/temp_*.sql  
+sql_queries/exercises/temp_*.sql
